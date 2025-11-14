@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: roomiefy-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: roomiefy
+      POSTGRES_PASSWORD: roomiefy
+      POSTGRES_DB: messaging
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
